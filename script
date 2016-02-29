@@ -1,0 +1,53 @@
+#!/bin/bash
+
+## For this script, you need to install sendEmail tool (sudo apt-get install sendEmail)
+
+## For keeping it secure using SSL/TLS, install (sudo apt-get install libio-socket-ssl-perl libnet-ssleay-perl)
+
+echo "Enter the email address from which you will send an email"
+
+read EMAILFROM
+
+echo $EMAILFROM
+
+echo "Enter the email address to which you will send an email"
+
+read EMAILTO
+
+if [[ $EMAILFROM == *"gmail.com"* ]]
+
+	then 
+		EMAILSERVER="smtp.googlemail.com:587";
+
+elif [[ $EMAILFROM == *"yahoo.com"* ]]
+
+	then 
+		EMAILSERVER="smtp.mail.yahoo.com:465";
+else
+	echo "Please enter your username of your account"
+fi
+
+
+
+echo $EMAILSERVER
+
+echo "Please enter your username" 
+
+read EMAILUSER
+
+echo "Please enter your password"
+
+read -s EMAILPASS
+
+
+echo "Please enter subject"
+
+read EMAILSUBJECT
+
+echo "Type message body"
+
+read MESSAGEBODY
+
+echo "Sending email....."
+
+sendEmail -f $EMAILFROM -t $EMAILTO -u $EMAILSUBJECT -m $MESSAGEBODY -s $EMAILSERVER -xu $EMAILUSER -xp $EMAILPASS -o tls=yes
