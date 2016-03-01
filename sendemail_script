@@ -98,12 +98,6 @@ echo "Type message body"
 
 read MESSAGEBODY
 
-## EXAMPLE  .....>send the file usage in an email in place of message body
-
-## df -h | grep Filesystem > /tmp/diskusage.txt
-## df -h | grep sda1 >> /tmp/diskusage.txt   ## to append sda1
-
-
 echo
 echo
 #############################            ATTACHMENTS  and sending email accordingly    ###############################################
