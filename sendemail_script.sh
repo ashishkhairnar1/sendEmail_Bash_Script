@@ -1,6 +1,3 @@
-           
-
-
 #!/bin/bash
 
 ## For this script, you need to install sendEmail tool (sudo apt-get install sendEmail)
